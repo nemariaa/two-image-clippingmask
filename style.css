@@ -9,23 +9,20 @@ body {
   font-family: "Helvetica Neue", Arial, sans-serif;
 	background-color: var(--bg-dark);
 	color: var(--text-light);
-}
-
-div {
-  position: relative;
+  margin: 2%;
 }
 
 .img-container {
-  position: relative;
-  width: 90%;
+  margin: 5%;
+  display: grid;
+  grid-template-areas: "img-container";
+  place-items: center;
 }
 
-.mask-image {
-  position: absolute;
-  left: 5%;
+.img-container > * {
+ grid-area: img-container;
 }
 
 .base-image {
-  position: absolute;
-  left: 6%;
+  padding-left: 10px; /*temporary so I can see both images are on the page before masking is implemented*/
 }
