@@ -1,0 +1,73 @@
+/**
+ *
+ * #### TABLE OF CONTENTS ####
+ *
+ * 01. Use a more-intuitive box-sizing model
+ * 02. Remove default margin
+ * 03. Add accessible line-height
+ * 04. Improve text rendering
+ * 05. Improve media defaults
+ * 06. Inherit fonts for form controls
+ * 07. Avoid text overflows
+ * 08. Improve line wrapping
+ *
+ **/
+
+/* #### 01. Use a more-intuitive box-sizing model #### */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* #### 02. Remove default margin #### */
+* {
+  margin: 0;
+}
+
+body {
+  /* #### 03. Add accessible line-height #### */
+  line-height: 1.5;
+  /* #### 04. Improve text rendering #### */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* #### 05. Improve media defaults #### */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+/* #### 06. Inherit fonts for form controls #### */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* #### 07. Avoid text overflows #### */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+/* #### 08. Improve line wrapping #### */
+p {
+  text-wrap: pretty;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}

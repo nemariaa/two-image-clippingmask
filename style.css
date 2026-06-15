@@ -1,0 +1,31 @@
+:root {
+	--bg-dark: #1a1a1a;
+	--bg-light: #f7f9fc;
+	--text-dark: #333;
+	--text-light: #f7f9fc;
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+	background-color: var(--bg-dark);
+	color: var(--text-light);
+}
+
+div {
+  position: relative;
+}
+
+.img-container {
+  position: relative;
+  width: 90%;
+}
+
+.mask-image {
+  position: absolute;
+  left: 5%;
+}
+
+.base-image {
+  position: absolute;
+  left: 6%;
+}
