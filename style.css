@@ -21,8 +21,17 @@ body {
 
 .img-container > * {
  grid-area: img-container;
+ width: 65vw;
 }
 
 .base-image {
-  padding-left: 10px; /*temporary so I can see both images are on the page before masking is implemented*/
+  /*padding-left: 10px; temporary so I can see both images are on the page before masking is implemented*/
+  mask-image: url(./rectangle.svg);
+  -webkit-mask-image: url(./rectangle.svg);
+  mask-position: 50% 50%;
+  -webkit-mask-position: 50% 50%;
+  mask-size: 35%;
+  -webkit-mask-size: 35%;
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
 }
