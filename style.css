@@ -18,6 +18,7 @@ h1, p {
 
 .socials {
   font-family: 'Courier New', Courier, monospace;
+  font-size: 0.95em;
 }
 
 a {
@@ -34,7 +35,7 @@ a {
 .img-container > * {
  grid-area: img-container;
  /*width: 65vw;*/
- height: 85vh;
+ max-height: 85vh;
  min-height: 400px;
  object-fit: contain;
  padding: 1em;
@@ -57,4 +58,11 @@ a {
 
 .mask-image.dragging {
   cursor: grabbing;
+}
+
+@media (max-width: 500px)
+{
+  .socials {
+    font-size: 0.75em;
+  }
 }

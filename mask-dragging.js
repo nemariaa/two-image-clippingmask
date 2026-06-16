@@ -108,8 +108,6 @@ document.addEventListener("touchmove", (e) => {
 	// Update the mask position and sliders
 	maskX = newMaskX;
 	maskY = newMaskY;
-	maskPositionX.value = maskX;
-	maskPositionY.value = maskY;
 
 	// Update display
 	updateMask(true);
