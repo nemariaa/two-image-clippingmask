@@ -26,29 +26,22 @@ a {
 }
 
 .img-container {
-  /*margin: 5%;*/
-  display: grid;
+  display: grid; /*using grid so images can be placed directly on top of each other without absolute positioning*/
   grid-template-areas: "img-container";
   place-items: center;
 }
 
 .img-container > * {
  grid-area: img-container;
- /*width: 65vw;*/
  max-height: 85vh;
  min-height: 400px;
- object-fit: contain;
+ object-fit: contain; /*necessary to maintain aspect ratio*/
  padding: 1em;
 }
 
 .mask-image {
-  /*padding-left: 10px; temporary so I can see both images are on the page before masking is implemented*/
-  mask-image: url(./maskshape.png);
-  -webkit-mask-image: url(./maskshape.png);
-  /*mask-position: 50% 50%;
-  -webkit-mask-position: 50% 50%;*/
-  /*mask-position: var(--x, 50%) var(--y, 50%);
-  -webkit-mask-position: var(--x, 50%) var(--y, 50%);*/
+  mask-image: url(../img/maskshape.png);
+  -webkit-mask-image: url(../img/maskshape.png);
   mask-size: 25%;
   -webkit-mask-size: 25%;
   mask-repeat: no-repeat;
@@ -60,6 +53,7 @@ a {
   cursor: grabbing;
 }
 
+/* Styles for mobile screens up to 500px wide */
 @media (max-width: 500px)
 {
   .socials {
