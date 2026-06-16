@@ -9,7 +9,8 @@
   <link rel="stylesheet" href="./reset.css" /> <!-- CSS reset from Ms Boba -->
   <link rel="stylesheet" href="./style.css" />
 
-  <script src="./mask-dragging-bad.js" defer></script>
+  <!--<script src="./mask-dragging-bad.js" defer></script>-->
+  <script src="./mask-dragging.js" defer></script>
   
 </head>
 
@@ -20,7 +21,7 @@
       <h1>Title Here</h1>
     </div>
     <div class="img-container">
-      <img src="./mask-image.jpg" class="mask-image" alt="Description of image goes here" draggable="false"> <!--this is the image that will show through the mask window-->
+      <img src="./mask-image.jpg" class="mask-image" id="maskedElement" alt="Description of image goes here" draggable="false"> <!--this is the image that will show through the mask window-->
       <img src="./base-image.jpg" class="base-image" alt="Description of image goes here" draggable="false"> <!--this is the image that is visible by default-->
     </div>
     <div>

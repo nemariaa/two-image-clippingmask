@@ -28,8 +28,10 @@ body {
   /*padding-left: 10px; temporary so I can see both images are on the page before masking is implemented*/
   mask-image: url(./rectangle.svg);
   -webkit-mask-image: url(./rectangle.svg);
-  mask-position: var(--x, 50%) var(--y, 50%);
-  -webkit-mask-position: var(--x, 50%) var(--y, 50%);
+  /*mask-position: 50% 50%;
+  -webkit-mask-position: 50% 50%;*/
+  /*mask-position: var(--x, 50%) var(--y, 50%);
+  -webkit-mask-position: var(--x, 50%) var(--y, 50%);*/
   mask-size: 25%;
   -webkit-mask-size: 25%;
   mask-repeat: no-repeat;
