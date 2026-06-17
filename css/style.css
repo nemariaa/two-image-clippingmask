@@ -29,6 +29,7 @@ a {
   display: grid; /*using grid so images can be placed directly on top of each other without absolute positioning*/
   grid-template-areas: "img-container";
   place-items: center;
+  padding: 1em;
 }
 
 .img-container > * {
@@ -36,7 +37,6 @@ a {
  max-height: 85vh;
  min-height: 400px;
  object-fit: contain; /*necessary to maintain aspect ratio*/
- padding: 1em;
 }
 
 .mask-image {

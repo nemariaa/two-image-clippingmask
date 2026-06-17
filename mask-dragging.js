@@ -1,4 +1,4 @@
-// Adapted from https://codepen.io/peterbenoit/pen/MWMNOYE. Thank you Peter!!
+/* Adapted from https://codepen.io/peterbenoit/pen/MWMNOYE. Thank you Peter!! */
 
 // Variables to store current drag position
 let isDragging = false;
@@ -7,13 +7,41 @@ let startX,
 	maskX = 50,
 	maskY = 50;
 
-// Get elements
+// Get element
 const maskedElement = document.getElementById("maskedElement");
 
+// Update display
 function updateMask() {
 		maskedElement.style.maskPosition = `${maskX}% ${maskY}%`;
 		maskedElement.style.webkitMaskPosition = `${maskX}% ${maskY}%`;
 	} 
+
+// Calculate new positions as a percentage based on masked image size & update mask position
+function calculateNewPositions(dx,dy) {
+  const imgWidth = maskedElement.clientWidth;
+	const imgHeight = maskedElement.clientHeight;
+	const newMaskX = Math.min(
+		Math.max(
+			(((maskX * imgWidth) / 100 + dx) / imgWidth) * 100,
+			0
+		),
+		100
+	);
+	const newMaskY = Math.min(
+		Math.max(
+			(((maskY * imgHeight) / 100 + dy) / imgHeight) * 100,
+			0
+		),
+		100
+	);
+	// Update the mask position
+	maskX = newMaskX;
+	maskY = newMaskY;
+  //console.log("Update mask position finished"); 
+}
+
+/***************************************/
+/* Handle mouse click and drag events */
 
 // Handle dragging the mask element
 maskedElement.addEventListener("mousedown", (e) => {
@@ -22,9 +50,7 @@ maskedElement.addEventListener("mousedown", (e) => {
 	startY = e.clientY;
 	maskedElement.classList.add("dragging");
 	e.preventDefault(); // Prevent default drag behavior
-  console.log("Mousedown finished"); 
-  console.log(startX); 
-  console.log(startY); 
+  //console.log("Mousedown finished"); 
 });
 
 document.addEventListener("mousemove", (e) => {
@@ -32,32 +58,9 @@ document.addEventListener("mousemove", (e) => {
 
 	const dx = e.clientX - startX;
 	const dy = e.clientY - startY;
-  console.log(dx); 
-  console.log(dy); 
 
-	// Calculate new positions as a percentage based on container size
-	const containerRect = maskedElement.parentElement.getBoundingClientRect();
-	const newMaskX = Math.min(
-		Math.max(
-			(((maskX * containerRect.width) / 100 + dx) / containerRect.width) * 100,
-			0
-		),
-		100
-	);
-	const newMaskY = Math.min(
-		Math.max(
-			(((maskY * containerRect.height) / 100 + dy) / containerRect.height) * 100,
-			0
-		),
-		100
-	);
-
-	// Update the mask position and sliders
-	maskX = newMaskX;
-	maskY = newMaskY;
-  console.log("Update mask position finished"); 
-  console.log(maskX); 
-  console.log(maskY); 
+	// Calculate new positions
+	calculateNewPositions(dx,dy);  
 
   // Update display
 	updateMask(true);
@@ -70,10 +73,13 @@ document.addEventListener("mousemove", (e) => {
 document.addEventListener("mouseup", () => {
 	isDragging = false;
 	maskedElement.classList.remove("dragging");
-  console.log("Dragging finished")
+  //console.log("Dragging finished")
 });
+/* End mouse section */
+/***************************************/
 
-// Handle touch events for mobile devices
+/***************************************/
+/* Handle touch events for mobile devices */
 maskedElement.addEventListener("touchstart", (e) => {
 	isDragging = true;
 	startX = e.touches[0].clientX;
@@ -88,26 +94,8 @@ document.addEventListener("touchmove", (e) => {
 	const dx = e.touches[0].clientX - startX;
 	const dy = e.touches[0].clientY - startY;
 
-	// Calculate new positions as a percentage based on container size
-	const containerRect = maskedElement.parentElement.getBoundingClientRect();
-	const newMaskX = Math.min(
-		Math.max(
-			(((maskX * containerRect.width) / 100 + dx) / containerRect.width) * 100,
-			0
-		),
-		100
-	);
-	const newMaskY = Math.min(
-		Math.max(
-			(((maskY * containerRect.height) / 100 + dy) / containerRect.height) * 100,
-			0
-		),
-		100
-	);
-
-	// Update the mask position and sliders
-	maskX = newMaskX;
-	maskY = newMaskY;
+	// Calculate new positions
+	calculateNewPositions(dx,dy);  
 
 	// Update display
 	updateMask(true);
@@ -121,6 +109,8 @@ document.addEventListener("touchend", () => {
 	isDragging = false;
 	maskedElement.classList.remove("dragging");
 });
+/* End mobile section */
+/***************************************/
 
 // Initialize the mask when the page loads
 document.addEventListener("DOMContentLoaded", () => {
